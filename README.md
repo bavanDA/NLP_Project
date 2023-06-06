@@ -1,1 +1,2 @@
 # NLP_Project
+My project is an NLP model that categorizes video games based on their descriptions. The model takes in a game description as input and predicts the category of the game. I gathered a dataset of game descriptions along with their corresponding categories from Steam to train the model. This project has the potential to aid game launchers in categorizing their games more efficiently and accurately.
