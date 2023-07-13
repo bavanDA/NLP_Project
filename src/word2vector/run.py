@@ -13,7 +13,7 @@ from src.word2vector.treebank import *
 # Reset the random seed to make sure that everyone gets the same results
 random.seed(314)
 for category in CATEGORIES:
-    dataset = SteamData(f'{SENTENCE_BROKEN_PATH}/{category}/{category}.csv')
+    dataset = SteamData(f'{TRAIN_DATA_PATH}/{category}.csv')
     tokens = dataset.tokens()
     nWords = len(tokens)
 

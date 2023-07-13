@@ -4,7 +4,7 @@ import numpy as np
 import os
 import random
 import pandas as pd
-import ast
+import nltk
 
 
 class SteamData:
@@ -47,12 +47,12 @@ class SteamData:
     def sentences(self):
         if hasattr(self, "_sentences") and self._sentences:
             return self._sentences
-
+        nltk.download('punkt')
         sentences = []
         df = pd.read_csv(self.path)
         data = df.to_dict('dict')
-        for i in range(len(data['sentences'])):
-            for sentence in ast.literal_eval(data['sentences'][i]):
+        for about in data['about'].values():
+            for sentence in nltk.sent_tokenize(about):
                 splitted = sentence.strip().split()[1:]
                 # Deal with some peculiar encoding issues with this file
                 sentences += [[w.lower() for w in splitted]]
