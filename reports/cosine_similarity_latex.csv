@@ -1,0 +1,16 @@
+word,category1,category2,cosine similarity
+help,action,adventure,0.840427126
+help,action,rpg,0.415400559
+help,action,strategy,0.374068507
+help,action,simulation,0.837654106
+help,action,sports_and_racing,0.825999222
+help,adventure,rpg,0.692863388
+help,adventure,strategy,0.458210335
+help,adventure,simulation,0.812006337
+help,adventure,sports_and_racing,0.72658225
+help,rpg,strategy,0.638125619
+help,rpg,simulation,0.570090728
+help,rpg,sports_and_racing,0.523235458
+help,strategy,simulation,0.614774685
+help,strategy,sports_and_racing,0.563842807
+help,simulation,sports_and_racing,0.958413517

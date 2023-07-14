@@ -6,7 +6,7 @@ import numpy as np
 import random
 import glob
 import pickle
-from src.logger.logger import *
+from src.log.log import *
 
 SAVE_PARAMS_EVERY = 5000
 
@@ -16,8 +16,8 @@ def load_saved_params(category):
     A helper function that loads previously saved parameters and resets
     iteration start.
     """
-    params_file = "{category}.word2vec.npy" 
-    state_file = "{category}.word2vec.pickle" 
+    params_file = f"models/{category}.word2vec.npy" 
+    state_file = f"models/{category}.word2vec.pickle" 
     params = np.load(params_file)
     with open(state_file, "rb") as f:
         state = pickle.load(f)
@@ -26,7 +26,7 @@ def load_saved_params(category):
 
 
 def save_params(iter, params,category):
-    params_file = f"{category}.word2vec.npy"
+    params_file = f"models/{category}.word2vec.npy"
     np.save(params_file, params)
     with open( f"{category}.word2vec.pickle" % iter, "wb") as f:
         pickle.dump(random.getstate(), f)
