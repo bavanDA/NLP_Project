@@ -1,0 +1,254 @@
+\DeclareRobustCommand{\mybox}[2][gray!20]{%
+\begin{tcolorbox}[   %% Adjust the following parameters at will.
+        breakable,
+        left=0pt,
+        right=0pt,
+        top=0pt,
+        bottom=0pt,
+        colback=#1,
+        colframe=#1,
+        width=\dimexpr\textwidth\relax, 
+        enlarge left by=0mm,
+        boxsep=5pt,
+        arc=0pt,outer arc=0pt,
+        ]
+        #2
+\end{tcolorbox}
+}
+
+\section{Word2vec}
+
+\begin{center}
+  \csvautotabular[respect all]{./reports/cosine_similarity_latex.csv}
+\end{center}
+
+
+Similar Vectors:
+
+\begin{itemize}
+\item Help in action and simulation categories has a high cosine similarity of 0.837, indicating the meaning of "help" is similar in these game genres. Both tend to have gameplay focused on competing against opponents where assistance or aids may be useful.
+
+\item Help in simulation and sports and racing has the highest similarity of 0.958. These genres often involve controlling vehicles or players where help, tips, or tutorials support the user. 
+
+\end{itemize}
+
+
+\newpage
+
+Different Vectors: 
+
+\begin{itemize}
+\item Help in action and strategy has a low cosine similarity of 0.374. The meaning varies as strategy games are more cognitive while action games require quick reflexes. Help implies different forms of aid or guidance.
+
+\item Help in RPG and sports and racing (0.523) also indicate the difference. RPGs involve immersive storytelling whereas sports games simulate athletic competitions. Help has distinct implications.
+
+\end{itemize}
+
+Get help from Claude
+
+
+\section{Tokenization}
+\section{Language model}
+
+I fine-tuned Neo GPT with my dataset for each category, and I got the following results:
+
+\textbf{Action}
+
+\grayLBox{
+1: 
+Game of all types! There must be two types of missions with different missions - the game map (or the game, its modes and objectives!) the level. Each level have two levels and each with three player. Iy.
+\\
+2: 
+The Legend of Noh no Mori® features 2 new adventures in both the world and of PIRUCAARON! In a first person game and classic presentation.
+The main hero has an opportunity for to join with KAZUNO, the god's daughter of MUTE, who is seeking her fortune. Together with ZONETAR, THE FOLDERING CIRCLE and THE SABERBER
+THE RING
+}
+\newpage
+
+\textbf{Adventure}
+
+\grayLBox{
+1:  
+Mimetic M is also for all players, and all to have a fun and action experience with these strange games that are not intended for kids  :
+\\
+2:   
+Cindell is a horror story where monsters turn humans, causing many deadly experiences at that take place all over the house. The terrifying times where an experience happens are just "The way this house should get scared". After several deaths, people who died are being born again and dead.
+ Features   A Story: - It can be a horror and games about horror - Characters: Three
+ A number - More to the show?
+}
+
+\textbf{RPG}
+
+\grayLBox{
+1:
+As we walk to the top, an  
+But no - The last, it is a time- travel 
+- A beautiful landscape game 
+\\
+2:
+ It starts a chain of events.
+To avoid it, save his character 
+In an old age game.
+}
+
+\textbf{Strategy}
+
+\grayLBox{
+1:  
+The New Hope - Single Player Online Simulator is set in the New Hope Republic of Theodras. When a revolt began on its homeland (Belionia) in the 21th Century to prevent a dictatorship, you fight, destroy it  by discovering the real threat in this game. 
+In real
+ battle, you do more than run out of ships but instead attack buildings (satellite ships) and the cities of Belion. Control the war zone using military units (Taser  ) to eliminate 
+ \\
+2:
+Find a reward 
+Depend: In-life resources - skills is key!!
+FANT STORY
+}
+
+\newpage
+\textbf{Simulation}
+
+\grayLBox{
+1:  
+This game contains: game  to improve the skill of: the playing mind, in many forms in real life situations, to become much richer from doing activities to
+training from. The gameplay, and a number of levels, makes playing game  
+ easier than on average, that being, that: when
+to do: play-testing, for the skill gainer (1, 1/ 2 of:). You also gain access to a variety of resources :  a very easy difficulty which to experience if it don: is on normal.
+. In each of that type it can be interesting to look back on: - the real-time movement of you- to try - with. And you discover with:
+many modes and elements, to explore!. As of the new update, they can be changed - from this
+. And yes, some parts can be skipped, as your playing mind gets more... :),!
+- New types of game,
+will gradually. 
+In this game, the player only plays around, with the right mind, in a real real experience at any time:, - mind (brain and nervous system
+- it depends by game 
+\\
+2:    
+FPS4S1 - Take Control
+A new addition on the FPS platform; an interesting and addictive gameplay set inside the office ! Players will find themselves caught in several exciting quests  that they can progress  with by completing them  - from destroying and repairing office buildings on the tower to defend new offices - complete! 
+! Players who are new to pc, only enjoy this in combination with
+! The entire experience!
+And also, in-between, 
+; by selecting one of the levels at a level by selecting a new one, a special, randomized plot area to complete (
+); by completing every plot map with a 100 difficulty limit (! (
+}
+\newpage
+\textbf{Sports and Racing}
+
+\grayLBox{
+1:  Rally is an arcade driving adventure style ride based in The Game Park. 
+The Challenge features 4 stages and 20 races each themed with one theme of 'Car Free,' 'Fun' - each stage you're gonna want to race with some variety as the difficulty of 'The Challenge' affects your win rate so be sure to race long enough in your bike and drive yourself insane for more. Make a difference, and prove that your car-pilot's skills and speed record is higher if you finish with 
+\\
+2:  
+Race in a track and obstacle challenge game, try you will to win an amazing amount of medals every race.
+ Play without mouse while running. Game controls, control pad etc. in a completely smooth racing experience! Use mouse/A button to break away and score points fast while trying not to land a wrong set. Earn coins, upgrade equipment (to keep competitive?), collect gold medals but avoid hazards more by aiming than jumping! There are other game mode of choice and various racing locations worldwide which can only make you experience and collect gold, a feeling we promise. Play in both multiplayer, leader boards or casual style with your brother or you to friends on PC
+}
+\\
+\\
+ the language models were trained separately on each game genre's descriptions, so they learned the unique vocabulary, themes, and writing style typical for that category. So, it makes sense that the results are different.
+Action games tend to focus on combat, opponents, and missions, whereas adventure games describe exploration, characters, and stories. RPGs involve fantasy themes and character progression. Each genre has distinctive elements reflected in the language.
+
+
+\section{Feature engineering}
+\section{Model architecture}
+\section{Data augmentation}
+
+Prompt:
+\\
+\\
+\grayLBox{
+Generate a dataset of game descriptions and their corresponding categories. The categories include action, adventure, RPG, strategy, simulation, and sports & racing. Please provide a game description and its category label. Each category should have 3 game descriptions.
+}
+\\
+\\
+Results:
+\\
+\\
+\grayLBox{
+Certainly! Here's a dataset with 3 game descriptions for each category:
+\\
+Action:
+\\
+1. Game Description: In this high-octane action game, players take on the role of a skilled assassin infiltrating enemy strongholds. Utilize stealth, cunning, and an arsenal of deadly weapons to eliminate targets and complete dangerous missions.
+\\
+2. Game Description: Prepare for adrenaline-pumping battles in this action-packed shooter. Engage in intense firefights, utilize advanced weaponry, and work as a team to outsmart and overpower your opponents in fast-paced multiplayer matches.
+\\
+3. Game Description: Step into the shoes of a superhero with extraordinary powers in this action-adventure game. Battle against powerful supervillains, protect innocent civilians, and use your unique abilities to restore peace and justice to the city.
+}
+\\
+\grayLBox{
+Adventure:
+\\
+1. Game Description: Embark on an epic adventure in a vast open world filled with quests, mysteries, and breathtaking landscapes. Explore ancient ruins, encounter mythical creatures, and make choices that shape your character's destiny.
+\\
+2. Game Description: Set sail on a grand pirate adventure, navigating treacherous waters and discovering hidden treasures. Build your crew, engage in naval battles, and explore uncharted islands in search of fame and fortune.
+\\
+3. Game Description: Immerse yourself in a captivating narrative-driven adventure. Solve puzzles, uncover secrets, and navigate through immersive environments as you unravel the mysteries of a forgotten civilization.
+\\
+RPG:
+\\
+1. Game Description: Enter a rich and immersive RPG world where you create your own hero and embark on a quest to save the realm from darkness. Customize your character, develop unique skills, and make impactful choices that shape the course of the story.
+\\
+2. Game Description: Dive into a fantasy realm teeming with magic and mythical creatures in this epic RPG. Join forces with companions, engage in strategic turn-based combat, and unravel a deep and engaging storyline filled with twists and surprises.
+\\
+3. Game Description: Experience a futuristic cyberpunk RPG where you navigate a sprawling city filled with intrigue and danger. Customize your character's cybernetic enhancements, engage in intense combat, and make choices that determine the fate of the city.
+}
+\grayLBox{
+Strategy:
+\\
+1. Game Description: Test your strategic thinking and leadership skills in this immersive strategy game. Build and manage a thriving civilization, research technologies, wage wars, and shape the course of history in a dynamic and ever-changing world.
+\\
+2. Game Description: Command an army of skilled warriors and engage in tactical battles on a grand scale. Plan your moves, exploit your enemy's weaknesses, and conquer territories in this deep and challenging strategy game.
+\\
+3. Game Description: Step into the shoes of a brilliant military strategist in this historical strategy game. Lead armies into battle, devise cunning tactics, and outmaneuver your opponents to secure victory and expand your empire.
+\\
+Simulation:
+\\
+1. Game Description: Immerse yourself in a realistic flight simulation game, where you take control of various aircraft and soar through the skies. Experience the thrill of takeoffs, landings, and aerial maneuvers as you navigate through challenging missions.
+\\
+2. Game Description: Build and manage your own virtual city in this detailed simulation game. Balance the needs of your citizens, construct, and make crucial decisions to create a thriving metropolis.
+\\
+3. Game Description: Take on the role of a farmer in this immersive agricultural simulation game. Cultivate crops, raise livestock, and manage your farm's resources to build a successful and profitable agricultural enterprise.
+\\
+}
+\grayLBox{
+Sports and Racing:
+\\
+1. Game Description: Experience the thrill of high-speed racing in this realistic driving simulation game. Choose from a variety of vehicles, compete in exhilarating races, and prove your skills on tracks around the world.
+\\
+2. Game Description: Step onto the football field and lead your team to victory in this immersive sports simulation game. Strategize, make tactical decisions and showcase your skills in intense matches against formidable opponents.
+\\
+3. Game Description: Engage in fast-paced, action-packed basketball games in this realistic sports simulation. Dribble, shoot, and dunk your way to victory as you compete against other teams in thrilling multiplayer matches.
+}
+\newpage
+\section{OpenAI}
+Prompt:
+\\
+\\
+\grayLBox{
+Detect the category of the game based on the game's description. categories are ['action', 'adventure', 'rpg',' strategy', 'simulation', 'sports and racing']. just return one category. no explanation
+\\
+game's description: "Experience the thrill of high-speed racing in this realistic driving simulation game. Choose from a variety of vehicles, compete in exhilarating races, and prove your skills on tracks around the world."
+}
+\\
+\\
+result:
+\\
+\\
+\grayLBox{
+sports and racing
+}
+   
+% لینک \lr{github} :
+% \\
+%  \begin{latin}
+%  \url{ https://github.com/bavanDA/NLP\_Project}
+%  \end{latin}
+ 
+
+% \\
+% لینک \lr{huggingface}:
+% \\
+%  \begin{latin}
+%  \url{https://huggingface.co/datasets/Bavanda/Steam\_DG}
+%  \end{latin}
+ 

@@ -1,0 +1,1 @@
+python -m src.language_model.language_model $1
